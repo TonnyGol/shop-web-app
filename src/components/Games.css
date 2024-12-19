@@ -1,0 +1,13 @@
+.free-game-grid{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill,
+            minmax(350px, 1fr));
+    grid-template-rows: repeat(auto-fill,
+            minmax(200px, 1fr));
+            
+}
