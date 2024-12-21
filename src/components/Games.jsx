@@ -1,6 +1,6 @@
 import GameItem from "./GameItem"
 import "./Games.css"
-function Games(props) {
+const Games = (props) => {
 
     return (
         <div className="free-game-grid">
@@ -12,6 +12,7 @@ function Games(props) {
                     image={item.img}
                     realesDate={item.realesDate}
                     price={item.price}
+
                 />
             ))}
 
