@@ -1,5 +1,6 @@
 import GameItem from "./GameItem"
 import "./Games.css"
+
 const Games = (props) => {
 
     return (
@@ -10,9 +11,9 @@ const Games = (props) => {
                     key={index}
                     name={item.name}
                     image={item.img}
-                    realesDate={item.realesDate}
+                    releaseDate={item.releaseDate}
                     price={item.price}
-
+                    setGameAdded={props.setGameAdded}
                 />
             ))}
 

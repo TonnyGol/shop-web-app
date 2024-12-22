@@ -1,6 +1,6 @@
 .cart-button {
     position: relative;
-    background-color: #ffffff;
+    background-color: #30b30f;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 6px rgba(242, 255, 0, 0.1);
+    left: 10px;
+
 }
 
 .cart-icon {

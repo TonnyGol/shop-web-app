@@ -12,4 +12,4 @@ const SearchBar = ({ setSearchBar }, searchBar) => {
     )
 }
 
-export default SearchBar
+export default SearchBar;

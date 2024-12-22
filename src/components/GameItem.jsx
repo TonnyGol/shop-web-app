@@ -12,13 +12,14 @@ const GameItem = (props) => {
             name: props.name,
             image: props.image,
             price: props.price,
-            realesDate: props.realesDate,
+            releaseDate: props.releaseDate,
         }
 
         const uniqueKey = props.name;
-        set(ref(database, 'objects/' + uniqueKey), gameToAdd)
+        set(ref(database, 'Games/' + uniqueKey), gameToAdd)
             .then(() => {
                 console.log("Data sent successfully!");
+                props.setGameAdded((prevFlag) => !prevFlag);
             })
             .catch((error) => {
                 console.error("Error sending data:", error);
@@ -31,9 +32,11 @@ const GameItem = (props) => {
             <div className='game-item__name'> {props.name}</div>
             <span className="game-item__price">
                 {props.price}
-                <button className="add-to-cart" onClick={addToCart}>Add to cart</button>
+                {props.showAddToCart !== false && (
+                    <button className="add-to-cart" onClick={addToCart}>Add to cart</button>
+                )}
             </span>
-            <div className='game-item__releaseDate'> {props.realesDate} </div>
+            <div className='game-item__releaseDate'> {props.releaseDate} </div>
             <br></br>
         </div>
     )

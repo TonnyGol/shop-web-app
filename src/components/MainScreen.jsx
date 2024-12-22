@@ -1,15 +1,34 @@
 import './MainScreen.css';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Cart from './Cart';
 import SearchBar from './SearchBar';
 import Games from './Games';
+import { useEffect, useState } from 'react';
+import { ref, get } from "firebase/database";
+import database from './FirebaseDB';
 
 function MainScreen() {
 
     const [games, setGames] = useState([]);
+    const [gameAdded, setGameAdded] = useState(false)
     const [cartCount, setCartCount] = useState(0)
     const [searchBar, setSearchBar] = useState('');
+
+    useEffect(() => {
+        const fetchObjectsNum = async () => {
+            const dbRef = ref(database, 'Games');
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                const cartGames = Object.values(data);
+                const totalObjects = cartGames.length;
+                console.log(totalObjects)
+                setCartCount(totalObjects)
+            } else {
+                console.log("No data available.");
+            }
+        }
+        fetchObjectsNum()
+    }, [gameAdded])
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -24,7 +43,7 @@ function MainScreen() {
                     return {
                         name: game.title,
                         img: game.thumbnail,
-                        realesDate: game.release_date,
+                        releaseDate: game.release_date,
                         price: priceNum + "$",
                     };
                 })
@@ -50,7 +69,8 @@ function MainScreen() {
             <SearchBar setSearchBar={setSearchBar} searchBar={searchBar} />
             <Cart cartCount={cartCount} />
             <br></br><br></br>
-            <Games items={filteredGames} />
+            <Games items={filteredGames} setGameAdded={setGameAdded} />
+
         </div>
     );
 }

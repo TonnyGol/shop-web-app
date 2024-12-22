@@ -9,5 +9,4 @@
                         minmax(350px, 1fr));
         grid-template-rows: repeat(auto-fill,
                         minmax(200px, 1fr));
-
 }
