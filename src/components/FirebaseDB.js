@@ -6,8 +6,8 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyD01DkMTso2zLWRv2_updLJUT7wcqmy8GA",
-    authDomain: "reactfirebaseexample-db9eb.firebaseapp.com",
+    apiKey: "*************",
+    authDomain: "*************",
     projectId: "reactfirebaseexample-db9eb",
     storageBucket: "reactfirebaseexample-db9eb.firebasestorage.app",
     messagingSenderId: "714395620407",
