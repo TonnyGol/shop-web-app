@@ -37,10 +37,27 @@
     margin: 0;
 }
 
+.delete-games {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 20px;
+    width: 15%;
+    border: none;
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.delete-games:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
 .totalPrice {
     color: rgb(0, 255, 34);
     font-size: 70px;
     padding-left: 20px;
-
-
 }

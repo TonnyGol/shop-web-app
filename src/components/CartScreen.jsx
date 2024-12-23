@@ -1,6 +1,6 @@
 import "./CartScreen.css"
 import React, { useEffect, useState } from 'react';
-import { ref, get } from 'firebase/database';
+import { ref, get, getDatabase, remove } from 'firebase/database';
 import database from './FirebaseDB';
 import GameItem from "./GameItem"
 
@@ -9,6 +9,7 @@ import GameItem from "./GameItem"
 const CartScreen = () => {
     const [cartGames, setCartGames] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [deleteGames, setDeleteGames] = useState(false);
 
 
     const fetchDataFromFirebase = async () => {
@@ -37,8 +38,23 @@ const CartScreen = () => {
     };
     useEffect(() => {
         fetchDataFromFirebase();
+    }, [deleteGames]);
 
-    }, []);
+
+    const deleteGamesInCart = async () => {
+        const db = await getDatabase();
+        const dbRef = ref(db, 'Games');
+
+        remove(dbRef)
+            .then(() => {
+                console.log('Delete successful');
+                setDeleteGames((prevFlag) => !prevFlag)
+                window.location.reload()
+            })
+            .catch((error) => {
+                console.error('Delete failed:', error.message);
+            });
+    }
 
     return (
         <div className="cartScreen">
@@ -57,7 +73,7 @@ const CartScreen = () => {
                     ))}
                 </div>
             </div>
-
+            <button className="delete-games" onClick={deleteGamesInCart}>Delete from Cart</button>
             <h6 className="totalPrice">Price: {totalPrice}$ </h6>
         </div>
     )
