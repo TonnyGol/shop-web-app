@@ -5,7 +5,7 @@ const SearchBar = ({ setSearchBar }, searchBar) => {
         <input
             className="search-bar"
             type="text"
-            placeholder="Search for a game"
+            placeholder="Search a game by price from $5 to $60"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value)}
         />

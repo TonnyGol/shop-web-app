@@ -58,7 +58,7 @@ function MainScreen() {
     }, []);
 
     const filteredGames = searchBar ? games.filter(game =>
-        game.name.toLowerCase().includes(searchBar.toLowerCase())
+        game.price.toLowerCase().includes(searchBar.toLowerCase())
     ) : games;
 
     return (
