@@ -60,21 +60,26 @@ const CartScreen = () => {
         <div className="cartScreen">
             <h6 className="cartHeader">Items in cart:</h6>
             <br></br> <br></br> <br></br> <br></br>
-            <div className="cart-games-Scroller">
-                <div className="cart-game-line">
-                    {cartGames.map((item, index) => (
-                        <GameItem
-                            key={index}
-                            name={item.name}
-                            image={item.image}
-                            price={item.price}
-                            showAddToCart={false}
-                        />
-                    ))}
-                </div>
-            </div>
-            <button className="delete-games" onClick={deleteGamesInCart}>Delete from Cart</button>
-            <h6 className="totalPrice">Price: {totalPrice}$ </h6>
+
+
+            {cartGames.map((item, index) => (
+                <GameItem
+                    key={index}
+                    name={item.name}
+                    image={item.image}
+                    price={item.price}
+                    showAddToCart={false}
+                />
+
+            ))}
+
+
+            <span>
+                <button className="buy-games" >Purchase</button>
+                <button className="delete-games" onClick={deleteGamesInCart}>Delete all from cart</button>
+            </span>
+            <h6 className="totalPrice">Price: {totalPrice}$  </h6>
+
         </div>
     )
 }

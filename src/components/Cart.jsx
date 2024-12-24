@@ -1,5 +1,5 @@
 import "./Cart.css"
-import greenCart from '../resources/cartIcon.png';
+import greenCart from '../resources/cartIcon2.png';
 import { useNavigate } from "react-router-dom";
 
 

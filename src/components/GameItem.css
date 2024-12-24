@@ -1,5 +1,5 @@
 .game-item__name {
-    text-align: center;
+    text-align: left;
 }
 
 .game-item {
@@ -9,8 +9,8 @@
 
 .game-item__price {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     gap: 10px;
     text-align: center;
 }
@@ -25,9 +25,13 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-
+    align-items: center;
 }
 
 .add-to-cart:hover {
     background-color: #0056b3;
+}
+
+.game-item__releaseDate {
+    text-align: left;
 }

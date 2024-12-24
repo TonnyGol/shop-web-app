@@ -64,7 +64,7 @@ function MainScreen() {
     return (
         <div className="App">
             <br></br>
-            <h1 className="h1">Shopping Web Store For The best game !</h1>
+            <h1 className="h1">Shop for The hottest games on the market !</h1>
             <br></br>
             <SearchBar setSearchBar={setSearchBar} searchBar={searchBar} />
             <Cart cartCount={cartCount} />
